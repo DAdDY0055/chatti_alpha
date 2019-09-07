@@ -1,2 +1,2 @@
-# chatti_-
+# chatti_alpha
 API通信で利用できるチャットルームアプリα版
