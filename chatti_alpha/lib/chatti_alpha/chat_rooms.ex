@@ -49,11 +49,18 @@ defmodule ChattiAlpha.ChatRooms do
       {:error, %Ecto.Changeset{}}
 
   """
+  # TODO: payloadをここに渡す
   def create_chat(attrs \\ %{}) do
     %Chat{}
     |> Chat.changeset(attrs)
     |> Repo.insert()
   end
+
+  # def save(payload) do
+  #   changeset = changeset(__struct__, payload)
+
+  #   Repo.insert(changeset)
+  # end
 
   @doc """
   Updates a chat.

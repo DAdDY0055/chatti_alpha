@@ -1,0 +1,34 @@
+defmodule ChattiAlphaWeb.RoomChannel do
+  use Phoenix.Channel
+  alias ChattiAlpha.ChatRooms
+
+  def join("room:*", _message, socket) do
+    {:ok, socket}
+  end
+
+  def join("room:" <> _private_room_id, _params, _socket) do
+    {:error, %{reason: "unauthorized"}}
+  end
+
+  def handle_in("new_msg", payload, socket) do
+    case ChatRooms.create_chat(payload) do
+      {:ok, _} ->
+        IO.inspect("ok")
+      {:error, changeset} ->
+        IO.inspect("error")
+    end
+
+    broadcast! socket, "new_msg", payload
+    {:reply, {:ok, payload}, socket}
+  end
+
+  def handle_in("ping", payload, socket) do
+    {:reply, {:ok, payload}, socket}
+  end
+
+  defp load_messages() do
+    ChatRooms.list_chats()
+    |> Enum.map(fn messages ->  messages end)
+  end
+
+end
