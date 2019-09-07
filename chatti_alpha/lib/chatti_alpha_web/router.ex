@@ -17,6 +17,7 @@ defmodule ChattiAlphaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/chats", ChatController
   end
 
   # Other scopes may use custom stacks.
