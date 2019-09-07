@@ -1,0 +1,38 @@
+<h1>Show Chat</h1>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @chat.user_id %>
+  </li>
+
+  <li>
+    <strong>User name:</strong>
+    <%= @chat.user_name %>
+  </li>
+
+  <li>
+    <strong>Rooom:</strong>
+    <%= @chat.rooom_id %>
+  </li>
+
+  <li>
+    <strong>Chat name:</strong>
+    <%= @chat.chat_name %>
+  </li>
+
+  <li>
+    <strong>Tenant:</strong>
+    <%= @chat.tenant_id %>
+  </li>
+
+  <li>
+    <strong>Post:</strong>
+    <%= @chat.post %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.chat_path(@conn, :edit, @chat) %></span>
+<span><%= link "Back", to: Routes.chat_path(@conn, :index) %></span>

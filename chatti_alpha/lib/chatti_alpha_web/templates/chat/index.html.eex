@@ -1,0 +1,36 @@
+<h1>Listing Chats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>User name</th>
+      <th>Rooom</th>
+      <th>Chat name</th>
+      <th>Tenant</th>
+      <th>Post</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for chat <- @chats do %>
+    <tr>
+      <td><%= chat.user_id %></td>
+      <td><%= chat.user_name %></td>
+      <td><%= chat.rooom_id %></td>
+      <td><%= chat.chat_name %></td>
+      <td><%= chat.tenant_id %></td>
+      <td><%= chat.post %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.chat_path(@conn, :show, chat) %></span>
+        <span><%= link "Edit", to: Routes.chat_path(@conn, :edit, chat) %></span>
+        <span><%= link "Delete", to: Routes.chat_path(@conn, :delete, chat), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Chat", to: Routes.chat_path(@conn, :new) %></span>
