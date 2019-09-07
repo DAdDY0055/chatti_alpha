@@ -1,0 +1,23 @@
+<%# TODO: CSSでフォント修正 %>
+<%# TODO: 表示メッセージはスクロールで全部表示しないようにしたい %>
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <%= for chat <- @chats do %>
+        <div>
+          <li> [<%= chat.user %>] <%= chat.post %></li>
+        </div>
+        <% end %>
+      </div>
+      <div id="messages">
+　    </div>
+      <div class="input-group">
+        <input id="user-input" type="text" class="form-control" placeholder="@user">
+        <input id="chat-input" type="text" placeholder="メッセージ"></input>
+        <input id="chat-input" type="button" value="送信"></input>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -18,6 +18,7 @@ defmodule ChattiAlphaWeb.Router do
 
     get "/", PageController, :index
     resources "/chats", ChatController
+    resources "/room", RoomController, only: [:index]
   end
 
   # Other scopes may use custom stacks.
