@@ -6,7 +6,7 @@
       <div class="col-sm-2">
         <%= for chat <- @chats do %>
         <div>
-          <li> [<%= chat.user %>] <%= chat.post %></li>
+          <li> [<%= chat.user_name %>] <%= chat.post %></li>
         </div>
         <% end %>
       </div>

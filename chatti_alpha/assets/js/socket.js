@@ -14,7 +14,7 @@ let messagesContainer = document.querySelector("#messages")
 // メッセージは空にする(ユーザー名はそのまま)
 chatInput.addEventListener("keypress", event => {
   if(event.keyCode === 13){
-    channel.push("new_msg", {user: userInput.value, chat: chatInput.value})
+    channel.push("new_msg", {user_name: userInput.value, post: chatInput.value})
     chatInput.value = ""
   }
 })

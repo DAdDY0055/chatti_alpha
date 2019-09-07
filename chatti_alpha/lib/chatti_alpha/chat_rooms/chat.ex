@@ -3,12 +3,12 @@ defmodule ChattiAlpha.ChatRooms.Chat do
   import Ecto.Changeset
 
   schema "chats" do
-    field :chat_name, :string
-    field :post, :string
-    field :rooom_id, :integer
-    field :tenant_id, :integer
-    field :user_id, :integer
-    field :user_name, :string
+    field(:chat_name, :string)
+    field(:post, :string)
+    field(:rooom_id, :integer)
+    field(:tenant_id, :integer)
+    field(:user_id, :integer)
+    field(:user_name, :string)
 
     timestamps()
   end
@@ -17,6 +17,6 @@ defmodule ChattiAlpha.ChatRooms.Chat do
   def changeset(chat, attrs) do
     chat
     |> cast(attrs, [:user_id, :user_name, :rooom_id, :chat_name, :tenant_id, :post])
-    |> validate_required([:user_id, :user_name, :rooom_id, :chat_name, :tenant_id, :post])
+    # |> validate_required([:user_id, :user_name, :rooom_id, :chat_name, :tenant_id, :post])
   end
 end

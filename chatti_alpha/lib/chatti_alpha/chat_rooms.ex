@@ -51,6 +51,7 @@ defmodule ChattiAlpha.ChatRooms do
   """
   # TODO: payloadをここに渡す
   def create_chat(attrs \\ %{}) do
+    IO.inspect(attrs)
     %Chat{}
     |> Chat.changeset(attrs)
     |> Repo.insert()
