@@ -2,7 +2,7 @@ defmodule ChattiAlphaWeb.RoomChannel do
   use Phoenix.Channel
   alias ChattiAlpha.ChatRooms
 
-  def join("room:*", _message, socket) do
+  def join("room:" <> gid, payload, socket) do
     {:ok, socket}
   end
 

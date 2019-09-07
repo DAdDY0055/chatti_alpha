@@ -4,7 +4,9 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
-let channel           = socket.channel("room:*", {})
+let LoginRoom = `room:${window.userToken}`
+
+let channel = socket.channel(LoginRoom, {})
 let userInput         = document.querySelector("#user-input")
 let chatInput         = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
@@ -24,7 +26,7 @@ chatInput.addEventListener("keypress", event => {
 // TODO: 空文字だと送信できないようにする
 channel.on("new_msg", payload => {
   let messageItem = document.createElement("li")
-  messageItem.innerText = `[${payload.user}] ${payload.chat}`
+  messageItem.innerText = `[${payload.user_name}] ${payload.post}`
   messagesContainer.appendChild(messageItem)
 })
 
