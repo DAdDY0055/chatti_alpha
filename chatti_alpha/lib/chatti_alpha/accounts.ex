@@ -18,7 +18,7 @@ defmodule ChattiAlpha.Accounts do
 
   """
   def list_users do
-    Repo.all(User)
+    Repo.all(UserSchema)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule ChattiAlpha.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id), do: Repo.get!(UserSchema, id)
 
   @doc """
   Creates a user.

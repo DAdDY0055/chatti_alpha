@@ -18,7 +18,7 @@ defmodule ChattiAlpha.ChatRooms do
 
   """
   def list_chats do
-    Repo.all(Chat)
+    Repo.all(ChatSchema)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule ChattiAlpha.ChatRooms do
       ** (Ecto.NoResultsError)
 
   """
-  def get_chat!(id), do: Repo.get!(Chat, id)
+  def get_chat!(id), do: Repo.get!(ChatSchema, id)
 
   @doc """
   Creates a chat.

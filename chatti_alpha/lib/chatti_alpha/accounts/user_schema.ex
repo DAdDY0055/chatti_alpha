@@ -16,6 +16,6 @@ defmodule ChattiAlpha.Accounts.UserSchema do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:uid, :name, :room_id, :room_name, :tenant_id])
-    # |> validate_required([:uid, :name, :room_id, :room_name, :tenant_id])
+    |> validate_required([:uid, :name, :room_id, :room_name, :tenant_id])
   end
 end
