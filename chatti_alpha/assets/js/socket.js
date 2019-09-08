@@ -1,10 +1,11 @@
 import {Socket} from "phoenix"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+let socket = new Socket("/socket", { params: { room_id: window.roomId } })
+// TODO: コネクトに何か値を渡してしたいか？
 
 socket.connect()
 
-let LoginRoom = `room:${window.userToken}`
+let LoginRoom = `room:${window.roomId}`
 
 let channel = socket.channel(LoginRoom, {})
 let userInput         = document.querySelector("#user-input")

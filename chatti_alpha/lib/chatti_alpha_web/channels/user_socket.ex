@@ -16,10 +16,8 @@ defmodule ChattiAlphaWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(gid, socket, _connect_info) do
-    IO.inspect(connect_gid: gid["token"])
 
     socket = assign(socket, :gid, gid["token"])
-    IO.inspect(connect_socket: socket)
 
     # ここでトークンの検証をする？
     {:ok, socket}

@@ -25,6 +25,10 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
-　  <script>window.userToken = "<%= assigns[:user_token] %>";</script>
-　  <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>  </body>
+　  <script>window.roomId = "<%= assigns[:room_id] %>";</script>
+　  <script>window.roomName = "<%= assigns[:room_name] %>";</script>
+　  <script>window.userName = "<%= assigns[:user_name] %>";</script>
+　  <script>window.tenantId = "<%= assigns[:tenant_id] %>";</script>
+　  <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>  
+  </body>
 </html>

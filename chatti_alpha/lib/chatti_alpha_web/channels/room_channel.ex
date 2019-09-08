@@ -11,7 +11,7 @@ defmodule ChattiAlphaWeb.RoomChannel do
   end
 
   def handle_in("new_msg", payload, socket) do
-    IO.inspect(payload)
+    # IO.inspect(payload)
     case ChatRooms.create_chat(payload) do
       {:ok, _} ->
         IO.inspect("ok")

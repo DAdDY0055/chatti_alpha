@@ -34,9 +34,13 @@ defmodule ChattiAlphaWeb.Router do
 
     case Token.verify_and_validate(token) do
       {:ok, claims} ->
-        assign(conn, :user_token, claims["gid"])
-      _ ->
-        IO.inspect(conn: conn)
+        conn
+        |> assign(:room_id, claims["room_id"])
+        |> assign(:room_name, claims["chat_name"])
+        |> assign(:user_name, claims["name"])
+        |> assign(:tenant_id, claims["tenant_id"])
+
+        _ ->
         conn
     end
   end
