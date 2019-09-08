@@ -2,7 +2,7 @@ defmodule ChattiAlphaWeb.ChatController do
   use ChattiAlphaWeb, :controller
 
   alias ChattiAlpha.ChatRooms
-  alias ChattiAlpha.ChatRooms.Chat
+  alias ChattiAlpha.ChatRooms.ChatSchema
 
   def index(conn, _params) do
     chats = ChatRooms.list_chats()
@@ -10,7 +10,7 @@ defmodule ChattiAlphaWeb.ChatController do
   end
 
   def new(conn, _params) do
-    changeset = ChatRooms.change_chat(%Chat{})
+    changeset = ChatRooms.change_chat(%ChatSchema{})
     render(conn, "new.html", changeset: changeset)
   end
 

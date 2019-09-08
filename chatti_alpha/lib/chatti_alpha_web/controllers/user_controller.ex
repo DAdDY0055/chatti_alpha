@@ -2,7 +2,7 @@ defmodule ChattiAlphaWeb.UserController do
   use ChattiAlphaWeb, :controller
 
   alias ChattiAlpha.Accounts
-  alias ChattiAlpha.Accounts.User
+  alias ChattiAlpha.Accounts.UserSchema
   alias ChattiAlpha.Token
 
   action_fallback ChattiAlphaWeb.FallbackController
@@ -14,7 +14,7 @@ defmodule ChattiAlphaWeb.UserController do
 
   def create(conn, user_params) do
     # TODO: user_paramsのバリデーション
-    with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
+    with {:ok, %UserSchema{} = user} <- Accounts.create_user(user_params) do
       token = Token.generate_and_sign!(user_params)
 
       conn
@@ -33,7 +33,7 @@ defmodule ChattiAlphaWeb.UserController do
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Accounts.get_user!(id)
 
-    with {:ok, %User{} = user} <- Accounts.update_user(user, user_params) do
+    with {:ok, %UserSchema{} = user} <- Accounts.update_user(user, user_params) do
       render(conn, "show.json", user: user)
     end
   end
@@ -41,7 +41,7 @@ defmodule ChattiAlphaWeb.UserController do
   def delete(conn, %{"id" => id}) do
     user = Accounts.get_user!(id)
 
-    with {:ok, %User{}} <- Accounts.delete_user(user) do
+    with {:ok, %UserSchema{}} <- Accounts.delete_user(user) do
       send_resp(conn, :no_content, "")
     end
   end

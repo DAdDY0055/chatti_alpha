@@ -6,7 +6,7 @@ defmodule ChattiAlpha.ChatRooms do
   import Ecto.Query, warn: false
   alias ChattiAlpha.Repo
 
-  alias ChattiAlpha.ChatRooms.Chat
+  alias ChattiAlpha.ChatRooms.ChatSchema
 
   @doc """
   Returns the list of chats.
@@ -14,7 +14,7 @@ defmodule ChattiAlpha.ChatRooms do
   ## Examples
 
       iex> list_chats()
-      [%Chat{}, ...]
+      [%ChatSchema{}, ...]
 
   """
   def list_chats do
@@ -29,7 +29,7 @@ defmodule ChattiAlpha.ChatRooms do
   ## Examples
 
       iex> get_chat!(123)
-      %Chat{}
+      %ChatSchema{}
 
       iex> get_chat!(456)
       ** (Ecto.NoResultsError)
@@ -43,7 +43,7 @@ defmodule ChattiAlpha.ChatRooms do
   ## Examples
 
       iex> create_chat(%{field: value})
-      {:ok, %Chat{}}
+      {:ok, %ChatSchema{}}
 
       iex> create_chat(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
@@ -51,8 +51,8 @@ defmodule ChattiAlpha.ChatRooms do
   """
   # TODO: payloadをここに渡す
   def create_chat(attrs \\ %{}) do
-    %Chat{}
-    |> Chat.changeset(attrs)
+    %ChatSchema{}
+    |> ChatSchema.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -68,31 +68,31 @@ defmodule ChattiAlpha.ChatRooms do
   ## Examples
 
       iex> update_chat(chat, %{field: new_value})
-      {:ok, %Chat{}}
+      {:ok, %ChatSchema{}}
 
       iex> update_chat(chat, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_chat(%Chat{} = chat, attrs) do
+  def update_chat(%ChatSchema{} = chat, attrs) do
     chat
-    |> Chat.changeset(attrs)
+    |> ChatSchema.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Chat.
+  Deletes a ChatSchema.
 
   ## Examples
 
       iex> delete_chat(chat)
-      {:ok, %Chat{}}
+      {:ok, %ChatSchema{}}
 
       iex> delete_chat(chat)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_chat(%Chat{} = chat) do
+  def delete_chat(%ChatSchema{} = chat) do
     Repo.delete(chat)
   end
 
@@ -102,10 +102,10 @@ defmodule ChattiAlpha.ChatRooms do
   ## Examples
 
       iex> change_chat(chat)
-      %Ecto.Changeset{source: %Chat{}}
+      %Ecto.Changeset{source: %ChatSchema{}}
 
   """
-  def change_chat(%Chat{} = chat) do
-    Chat.changeset(chat, %{})
+  def change_chat(%ChatSchema{} = chat) do
+    ChatSchema.changeset(chat, %{})
   end
 end

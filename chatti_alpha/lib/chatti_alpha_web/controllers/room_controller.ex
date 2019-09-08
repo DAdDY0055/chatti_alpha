@@ -2,7 +2,7 @@ defmodule ChattiAlphaWeb.RoomController do
   use ChattiAlphaWeb, :controller
 
   alias ChattiAlpha.ChatRooms
-  alias ChattiAlpha.ChatRooms.Chat
+  alias ChattiAlpha.ChatRooms.ChatSchema
 
   def index(conn, _params) do
     chats = ChatRooms.list_chats()

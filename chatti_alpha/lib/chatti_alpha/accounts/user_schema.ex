@@ -1,4 +1,4 @@
-defmodule ChattiAlpha.Accounts.User do
+defmodule ChattiAlpha.Accounts.UserSchema do
   use Ecto.Schema
   import Ecto.Changeset
 

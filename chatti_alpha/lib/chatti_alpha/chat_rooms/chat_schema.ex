@@ -1,4 +1,4 @@
-defmodule ChattiAlpha.ChatRooms.Chat do
+defmodule ChattiAlpha.ChatRooms.ChatSchema do
   use Ecto.Schema
   import Ecto.Changeset
 

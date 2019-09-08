@@ -6,7 +6,7 @@ defmodule ChattiAlpha.Accounts do
   import Ecto.Query, warn: false
   alias ChattiAlpha.Repo
 
-  alias ChattiAlpha.Accounts.User
+  alias ChattiAlpha.Accounts.UserSchema
 
   @doc """
   Returns the list of users.
@@ -14,7 +14,7 @@ defmodule ChattiAlpha.Accounts do
   ## Examples
 
       iex> list_users()
-      [%User{}, ...]
+      [%UserSchema{}, ...]
 
   """
   def list_users do
@@ -29,7 +29,7 @@ defmodule ChattiAlpha.Accounts do
   ## Examples
 
       iex> get_user!(123)
-      %User{}
+      %UserSchema{}
 
       iex> get_user!(456)
       ** (Ecto.NoResultsError)
@@ -43,15 +43,15 @@ defmodule ChattiAlpha.Accounts do
   ## Examples
 
       iex> create_user(%{field: value})
-      {:ok, %User{}}
+      {:ok, %UserSchema{}}
 
       iex> create_user(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
   def create_user(attrs \\ %{}) do
-    %User{}
-    |> User.changeset(attrs)
+    %UserSchema{}
+    |> UserSchema.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -61,31 +61,31 @@ defmodule ChattiAlpha.Accounts do
   ## Examples
 
       iex> update_user(user, %{field: new_value})
-      {:ok, %User{}}
+      {:ok, %UserSchema{}}
 
       iex> update_user(user, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_user(%User{} = user, attrs) do
+  def update_user(%UserSchema{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> UserSchema.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a User.
+  Deletes a UserSchema.
 
   ## Examples
 
       iex> delete_user(user)
-      {:ok, %User{}}
+      {:ok, %UserSchema{}}
 
       iex> delete_user(user)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_user(%User{} = user) do
+  def delete_user(%UserSchema{} = user) do
     Repo.delete(user)
   end
 
@@ -95,10 +95,10 @@ defmodule ChattiAlpha.Accounts do
   ## Examples
 
       iex> change_user(user)
-      %Ecto.Changeset{source: %User{}}
+      %Ecto.Changeset{source: %UserSchema{}}
 
   """
-  def change_user(%User{} = user) do
-    User.changeset(user, %{})
+  def change_user(%UserSchema{} = user) do
+    UserSchema.changeset(user, %{})
   end
 end
