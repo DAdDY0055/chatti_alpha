@@ -4,7 +4,7 @@ defmodule ChattiAlphaWeb.RoomController do
   alias ChattiAlpha.ChatRooms
 
   def index(conn, _params) do
-    IO.inspect(room_index_conn_assigns: conn.assigns)
+    # IO.inspect(room_index_conn_assigns: conn.assigns)
 
     # ここでUIDとRoomIdで制御する
     # 本当はサービスで作るか
@@ -12,6 +12,7 @@ defmodule ChattiAlphaWeb.RoomController do
 
     conn
     |> assign(:user_name, conn.assigns.user_name)
+    |> assign(:room_name, conn.assigns.room_name)
     |> assign(:chats, chats)
     |> render("index.html")
   end

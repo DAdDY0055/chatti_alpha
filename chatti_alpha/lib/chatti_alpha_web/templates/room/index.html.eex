@@ -1,5 +1,7 @@
 <%# TODO: CSSでフォント修正 %>
 <%# TODO: 表示メッセージはスクロールで全部表示しないようにしたい %>
+<h2>ルーム名：<%= @room_name %></h2>
+
 <div id="footer">
   <div class="container">
     <div class="row">
