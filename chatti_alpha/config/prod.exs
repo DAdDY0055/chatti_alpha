@@ -10,9 +10,12 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :chatti_alpha, ChattiAlphaWeb.Endpoint,
-  url: [scheme: "https", host: "chatti-alpha", port: 443],
+  url: false,
+  # url: [scheme: "http", host: "chatti-alpha", port: 80],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  # check_origin: ["https://*", "http://*"]
+  check_origin: false
 
 # Do not print debug messages in production
 config :logger, level: :info
