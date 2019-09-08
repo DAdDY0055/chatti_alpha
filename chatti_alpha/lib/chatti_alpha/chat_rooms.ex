@@ -26,7 +26,8 @@ defmodule ChattiAlpha.ChatRooms do
   """
   def get_info_by_room(room_id) do
     # TODO: カラム名が`rooom_id`なので直す
-    Repo.get_by(ChatSchema, rooom_id: room_id)
+    query = from(c in ChatSchema, where: c.rooom_id == ^room_id)
+    Repo.all(query)
   end
 
   @doc """
