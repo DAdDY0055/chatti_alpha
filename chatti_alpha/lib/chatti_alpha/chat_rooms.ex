@@ -17,9 +17,9 @@ defmodule ChattiAlpha.ChatRooms do
       [%ChatSchema{}, ...]
 
   """
-  def list_chats do
-    Repo.all(ChatSchema)
-  end
+  # def list_chats do
+  #   Repo.all(ChatSchema)
+  # end
 
   @doc """
   RoomIDに応じた過去履歴を取得する
@@ -44,7 +44,7 @@ defmodule ChattiAlpha.ChatRooms do
       ** (Ecto.NoResultsError)
 
   """
-  def get_chat!(id), do: Repo.get!(ChatSchema, id)
+  # def get_chat!(id), do: Repo.get!(ChatSchema, id)
 
   @doc """
   Creates a chat.
@@ -83,11 +83,11 @@ defmodule ChattiAlpha.ChatRooms do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_chat(%ChatSchema{} = chat, attrs) do
-    chat
-    |> ChatSchema.changeset(attrs)
-    |> Repo.update()
-  end
+  # def update_chat(%ChatSchema{} = chat, attrs) do
+  #   chat
+  #   |> ChatSchema.changeset(attrs)
+  #   |> Repo.update()
+  # end
 
   @doc """
   Deletes a ChatSchema.
@@ -101,9 +101,9 @@ defmodule ChattiAlpha.ChatRooms do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_chat(%ChatSchema{} = chat) do
-    Repo.delete(chat)
-  end
+  # def delete_chat(%ChatSchema{} = chat) do
+  #   Repo.delete(chat)
+  # end
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking chat changes.

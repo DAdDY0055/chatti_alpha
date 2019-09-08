@@ -19,14 +19,14 @@ defmodule ChattiAlphaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/chats", ChatController
+    # resources "/chats", ChatController
     resources "/room", RoomController, only: [:index]
   end
 
   scope "/api", ChattiAlphaWeb do
     pipe_through :api
 
-    resources "/users", UserController, except: [:new, :edit]
+    resources "/users", UserController, only: [:create]
   end
 
   defp veryfy_user_token(conn, _prams) do
