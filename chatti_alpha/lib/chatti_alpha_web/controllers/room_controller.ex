@@ -9,6 +9,10 @@ defmodule ChattiAlphaWeb.RoomController do
     # ここでUIDとRoomIdで制御する
     # 本当はサービスで作るか
     chats = ChatRooms.list_chats()
-    render(conn, "index.html", chats: chats)
+
+    conn
+    |> assign(:user_name, conn.assigns.user_name)
+    |> assign(:chats, chats)
+    |> render("index.html")
   end
 end

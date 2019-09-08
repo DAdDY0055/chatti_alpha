@@ -8,7 +8,7 @@ socket.connect()
 let LoginRoom = `room:${window.roomId}`
 
 let channel = socket.channel(LoginRoom, {})
-let userInput         = document.querySelector("#user-input")
+let userInput         = window.userName
 let chatInput         = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 
@@ -17,7 +17,7 @@ let messagesContainer = document.querySelector("#messages")
 // メッセージは空にする(ユーザー名はそのまま)
 chatInput.addEventListener("keypress", event => {
   if(event.keyCode === 13){
-    channel.push("new_msg", {user_name: userInput.value, post: chatInput.value})
+    channel.push("new_msg", {user_name: window.userName, post: chatInput.value})
     chatInput.value = ""
   }
 })

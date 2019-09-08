@@ -11,7 +11,7 @@
         <div id="messages">
 　    </div>
       <div class="input-group">
-        <input id="user-input" type="text" class="form-control" placeholder="@user">
+        <li> [<%= @user_name %>]</li>
         <input id="chat-input" type="text" placeholder="メッセージ"></input>
         <input id="chat-input" type="button" value="送信"></input>
       </div>
