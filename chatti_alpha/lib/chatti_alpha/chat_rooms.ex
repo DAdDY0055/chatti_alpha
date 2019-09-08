@@ -22,6 +22,14 @@ defmodule ChattiAlpha.ChatRooms do
   end
 
   @doc """
+  RoomIDに応じた過去履歴を取得する
+  """
+  def get_info_by_room(room_id) do
+    # TODO: カラム名が`rooom_id`なので直す
+    Repo.get_by(ChatSchema, rooom_id: room_id)
+  end
+
+  @doc """
   Gets a single chat.
 
   Raises `Ecto.NoResultsError` if the Chat does not exist.

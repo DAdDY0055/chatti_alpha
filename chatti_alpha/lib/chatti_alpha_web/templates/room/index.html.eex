@@ -6,9 +6,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-2">
-        <%= for chat <- @chats do %>
-        <div>
-          <li> [<%= chat.user_name %>] <%= chat.post %></li>
+        <% if @chats do %>
+          <%= for chat <- @chats do %>
+          <div>
+            <li> [<%= chat.user_name %>] <%= chat.post %></li>
+          <% end %>
         <% end %>
         <div id="messages">
 　    </div>

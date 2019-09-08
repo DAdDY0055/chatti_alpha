@@ -2,7 +2,9 @@ defmodule ChattiAlphaWeb.RoomChannel do
   use Phoenix.Channel
   alias ChattiAlpha.ChatRooms
 
-  def join("room:" <> gid, payload, socket) do
+  def join("room:" <> room_id, payload, socket) do
+    # どうやってここに渡ってるんだっけ？
+    # IO.inspect(room_id: room_id)
     {:ok, socket}
   end
 
@@ -11,6 +13,7 @@ defmodule ChattiAlphaWeb.RoomChannel do
   end
 
   def handle_in("new_msg", payload, socket) do
+    IO.inspect(payload: payload)
     # IO.inspect(payload)
     case ChatRooms.create_chat(payload) do
       {:ok, _} ->
