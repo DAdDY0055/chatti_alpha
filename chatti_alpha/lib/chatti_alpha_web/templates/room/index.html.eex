@@ -12,7 +12,7 @@
       <div class="input-group">
         <li> [<%= @user_name %>]</li>
         <input id="chat-input" type="text" placeholder="メッセージ"></input>
-        <input id="chat-input" type="button" value="送信"></input>
+        <%# <input id="chat-input" type="button" value="送信"></input> %>
       </div>
 
     </div>
