@@ -18,7 +18,7 @@ defmodule ChattiAlphaWeb.Router do
   scope "/", ChattiAlphaWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", RoomController, :index
     # resources "/chats", ChatController
     resources "/room", RoomController, only: [:index]
   end
@@ -32,18 +32,23 @@ defmodule ChattiAlphaWeb.Router do
   defp veryfy_user_token(conn, _prams) do
     token = conn.params["token"]
 
-    case Token.verify_and_validate(token) do
-      {:ok, claims} ->
-        conn
-        |> assign(:room_id, claims["room_id"])
-        |> assign(:room_name, claims["room_name"])
-        |> assign(:user_id, claims["uid"])
-        |> assign(:user_name, claims["name"])
-        |> assign(:tenant_id, claims["tenant_id"])
+    if token do
+      case Token.verify_and_validate(token) do
+        {:ok, claims} ->
+          conn
+          |> assign(:room_id, claims["room_id"])
+          |> assign(:room_name, claims["room_name"])
+          |> assign(:user_id, claims["uid"])
+          |> assign(:user_name, claims["name"])
+          |> assign(:tenant_id, claims["tenant_id"])
 
-        _ ->
-        IO.inspect("bat request")
-        {:error, %{reason: "unauthorized"}}
+          _ ->
+          conn
+          |> assign(:error, "unauthorized")
+      end
+    else
+      conn
+      |> assign(:error, "unauthorized")
     end
   end
 

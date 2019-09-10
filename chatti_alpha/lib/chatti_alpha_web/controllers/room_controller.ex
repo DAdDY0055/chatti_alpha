@@ -4,14 +4,23 @@ defmodule ChattiAlphaWeb.RoomController do
   alias ChattiAlpha.ChatRooms
 
   def index(conn, _params) do
-    # ここでUIDとRoomIdで制御する
-    # 本当はサービスで作るか
-    chats = ChatRooms.get_info_by_room(conn.assigns.room_id)
+    IO.inspect(conn.assigns)
+    case conn.assigns do
+      %{error: "unauthorized"} ->
 
-    conn
-    |> assign(:user_name, conn.assigns.user_name)
-    |> assign(:room_name, conn.assigns.room_name)
-    |> assign(:chats, chats)
-    |> render("index.html")
+        conn
+        |> render("error.html")
+
+      _ ->
+        # ここでUIDとRoomIdで制御する
+        # 本当はサービスで作るか
+        chats = ChatRooms.get_info_by_room(conn.assigns.room_id)
+
+        conn
+        |> assign(:user_name, conn.assigns.user_name)
+        |> assign(:room_name, conn.assigns.room_name)
+        |> assign(:chats, chats)
+        |> render("index.html")
+    end
   end
 end

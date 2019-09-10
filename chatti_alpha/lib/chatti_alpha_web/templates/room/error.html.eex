@@ -1,0 +1,24 @@
+<h2>認証エラー</h2>
+
+<p style="text-decoration: underline;">ご利用には以下URLパラメーターにトークンを付与してアクセスする必要があります</p>
+
+<p>POST: /api/users へ、以下のbodyを付与してHTTPリクエストを送ってください。</p>
+
+<p style="background-color: #C0C0C0; display: inline-block;">
+{"uid": 1,
+  "name": "user",
+  "room_id": 1,
+  "room_name": "chatti",
+  "tenant_id": 1
+ }
+</p>
+
+<p>トークン発行コマンド例：</p>
+<p  style="background-color: #C0C0C0; display: inline-block;">$ curl -i -X POST -H "Content-Type: application/json" \
+https://chatti-alpha.herokuapp.com/api/users \
+-d '{"uid":1, "name":"user", "room_id":1, "room_name":"chatti", "tenant_id":1}'</p>
+
+<p>トークンを取得した後、以下のようにURLパラメーターにトークンを付与してアクセスすることができます</p>
+<p style="background-color: #C0C0C0; display: inline-block;">https://chatti-alpha.herokuapp.com/api/users/room?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ...</p>
+
+<p>README: <br><a href>https://github.com/DAdDY0055/chatti_alpha/blob/master/README.md</a></p>
