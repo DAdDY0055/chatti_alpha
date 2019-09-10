@@ -16,6 +16,14 @@ POST: /api/users へ、以下の`body`を付与してHTTPリクエストを送�
 
 bodyが正しい場合、bodyの情報を含んだJWTトークンが返却されます。
 
+トークン発行コマンド例：
+
+```
+curl -i -X POST -H "Content-Type: application/json" \
+https://chatti-alpha.herokuapp.com/api/users \
+-d '{"uid":1, "name":"user", "room_id":1, "room_name":"chatti", "tenant_id":1}'
+```
+
 ## 2. チャットログイン
 1. で返却されたJWTトークンを使いチャットにログインします。
 GET: /room  にクエリパラメータで、 `?token=発行されたJWTトークン` を付与してください
